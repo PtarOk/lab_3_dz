@@ -12,9 +12,9 @@
 	`scanf("%d", &day);`    
 	 `...`   
 4. Выполнить подсчёт возраста логическими операциями;  
-	`difference_d = (day >= day_now);`
-	`month_now -= difference_d;`
-    `...`
+	`difference_d = (day >= day_now);`  
+	`month_now -= difference_d;`  
+    `...`  
 5. Выввести результат пользователю;  
     `printf("\nВаш возраст - %d лет.\n", year_now - year);`  
 5. Конец.    
