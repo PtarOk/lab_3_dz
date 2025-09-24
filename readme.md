@@ -24,17 +24,17 @@
 
 ## 2. Реализация программы 
 
-#include <locale.h>  
-#define _CRT_SECURE_NO_DEPRECATE  
-#include <stdio.h>  
+#include <locale.h>
+#define _CRT_SECURE_NO_DEPRECATE
+#include <stdio.h>
 
-int main()  
-{  
-	setlocale(LC_ALL, "RUS");  
+int main()
+{
+	setlocale(LC_ALL, "RUS");
 
 	int day, month, year; // переменные для даты др пользователя
 	int day_now, month_now, year_now; // переменные для сегодняшней даты
-
+	int difference_d = 0, difference_m = 0;
 	// считывание даты рождения
 	puts("Введите день Вышего рождения, например, 1 (что значит первый день месяца)");
 	scanf("%d", &day);
@@ -52,8 +52,12 @@ int main()
 	scanf("%d", &year_now);
 
 	// проверка, если вдруг день и месяц рождения численно больше сегодняшних дня и месяца
-	if (day >= day_now) month_now--;
-	if (month >= month_now) year_now--;
+
+	difference_d = (day >= day_now);			// Аналог действий слева, но используя условие
+	month_now -= difference_d;					//if (day >= day_now) month_now--;
+												//if (month >= month_now) year_now--;
+	difference_m = (month >= month_now);		//if (month >= month_now) year_now--;
+	year_now -= difference_m;					
 
 	//вывод рез-та
 	printf("\nВаш возраст - %d лет.\n", year_now - year);
